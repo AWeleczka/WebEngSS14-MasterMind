@@ -16,6 +16,10 @@
 
 var current_attempt = {};
 
+/**
+ * update the current_attempt color-array with the most recent selection
+ * of a user, initiate processor-communication if all four colors are set
+ */
 function setColor(c) {
   if(current_attempt.c1 == null) {
     current_attempt.c1 = c;
@@ -38,11 +42,17 @@ function setColor(c) {
   }
 }
 
+/**
+ * Update user frontend to represent the current color-selection
+ */
 function updateGuess(c, id) {
   $('#' + id).addClass(c);
   $('#' + id).removeClass('grey');
 }
 
+/**
+ * Reset color-display and currently guessed colors
+ */
 function resetGuess() {
   current_attempt.c1 = null;
   current_attempt.c2 = null;
@@ -50,9 +60,12 @@ function resetGuess() {
   current_attempt.c4 = null;
 
   $('[id^=guess_]').removeClass();
-  $('[id^=guess_]').addClass('col-md-3 btn grey');
+  $('[id^=guess_]').addClass('col-md-2 btn grey');
 }
 
+/**
+ * Send guessed color to the processor and handle JSON-Response
+ */
 function submitGuess() {
   $.ajax({
     url: './processor.php?guess',
@@ -64,6 +77,10 @@ function submitGuess() {
   });
 }
 
+/**
+ * Send reset-Request to processor to generate a new color-combination
+ * reset board to init-view
+ */
 function restartGame() {
   $.ajax({
     url: './processor.php?reset',
@@ -75,7 +92,10 @@ function restartGame() {
     $('#colSel').show(250);
   });
 }
-
+/**
+ * Rebuild user frontend from JSON-Rsponse, update past guesses,
+ * verify game-state and end game is nessacary
+ */
 function rebuildGame() {
   var json = $.parseJSON(current_attempt.data);
   var html = "";
@@ -94,7 +114,7 @@ function rebuildGame() {
 
     if(json[json.length-1].pMatch == 4) {
       html += '<div class="row">';
-      html += '    <div class="col-md-8"><button class="btn btn-primary btn-block" onclick="restartGame();">Restart</button></div>';
+      html += '    <div class="col-md-8"><button class="btn btn-primary btn-block" onclick="restartGame();">Neues Spiel</button></div>';
       html += '    <div class="col-md-4"><strong>WINNER</strong></div>';
       html += '</div>';
       $('#colSel').hide(250);
@@ -111,7 +131,7 @@ function rebuildGame() {
     });
     
     html += '<div class="row">';
-    html += '    <div class="col-md-8"><button class="btn btn-primary btn-block" onclick="restartGame();">Restart</button></div>';
+    html += '    <div class="col-md-8"><button class="btn btn-primary btn-block" onclick="restartGame();">Neues Spiel</button></div>';
     html += '    <div class="col-md-4"><strong>Game Over</strong></div>';
     html += '</div>';
 

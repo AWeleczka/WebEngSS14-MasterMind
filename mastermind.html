@@ -62,15 +62,16 @@
                     <div class="col-md-2 btn teal" onclick="setColor('teal')">Teal</div>
                 </div>
                 <div class="row">
-                    <div id="guess_1" class="col-md-3 btn grey">&nbsp;</div>
-                    <div id="guess_2" class="col-md-3 btn grey">&nbsp;</div>
-                    <div id="guess_3" class="col-md-3 btn grey">&nbsp;</div>
-                    <div id="guess_4" class="col-md-3 btn grey">&nbsp;</div>
+                    <div id="guess_1" class="col-md-2 btn grey">&nbsp;</div>
+                    <div id="guess_2" class="col-md-2 btn grey">&nbsp;</div>
+                    <div id="guess_3" class="col-md-2 btn grey">&nbsp;</div>
+                    <div id="guess_4" class="col-md-2 btn grey">&nbsp;</div>
+                    <button class="btn btn-default col-md-4" onclick="resetGuess();">Reset</button>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <p style="text-align:center;">Du hast noch <strong id="remaining">12</strong> von 12 Versuchen</p>
-                        <button class="btn btn-primary btn-block" onclick="restartGame();">Neues Spiel</button>
+                        <button class="btn btn-danger btn-block" onclick="restartGame();">Neues Spiel</button>
                     </div>
                 </div>
             </div>

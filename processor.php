@@ -21,7 +21,7 @@ session_start();
 $colors = array('rot', 'gruen', 'blau', 'gelb', 'lila', 'teal');
 
 /*
- * Initialisierung der Farbkombination, falls no keine in der Session existiers
+ * Initialisierung der Farbkombination, falls no keine in der Session existiert
  */
 if(!isset($_SESSION['code'])) {
 
@@ -54,25 +54,26 @@ if(isset($_GET['guess'])) {
             $pMatch++;
         }
     }
-    $guess['pMatch'] = $pMatch;
 
     /* Bestimme uebereinstimmende Farben zwischen der Originalkombination und der Benutzereingabe */
     $cMatch = 0;
     foreach($guess as $g) {
-        if($g != $pMatch) {
+        if(in_array($g, $colors)) {
             foreach($original as $k => $o) {
                 if($g == $o) {
                     $cMatch++;
-                    $original[$k] = "undefined";
+                    unset($original[$k]);
                     break;
                 }
             }
         }
     }
-    $guess['cMatch'] = $cMatch;
+	
+    $guess['pMatch'] = $pMatch;
+    $guess['cMatch'] = $cMatch - $pMatch;
 
     /* Entferne doppelte eintraege (Farbe an richtiger position zaehlt nur einmalig als Position) */
-    $guess['cMatch'] = $guess['cMatch'] - $guess['pMatch'];
+    //$guess['cMatch'] = $guess['cMatch'] - $guess['pMatch'];
 
     array_push($guesses, $guess);
     echo json_encode($guesses);

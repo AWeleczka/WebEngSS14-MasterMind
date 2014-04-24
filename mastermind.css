@@ -1,0 +1,65 @@
+/**
+ * MasterMind Clone written in HTML5 with JavaScript
+ * submission and PHP processing
+ *
+ * Clone of the commonly known game "Mastermind"
+ * Featuring a HTML5-Compliant userinterface built upon Bootstrap
+ * with jQuery-Based JavaScript-I/O-Processing
+ * and PHP Game-Logic.
+ * This Project was written as part of a practical exercise for the class
+ * "Web-Engeneering" in the Summer Semester 2014 at Hochschule RheinMain
+ *
+ * @author     Alexander Weleczka <mail@AWeleczka.de>
+ * @copyright  2014 Alexander Weleczka for WebEng006 SS14 HS-RM
+ * @version    1.0
+ */
+
+.rot {
+  background-color: #990000;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.gruen {
+  background-color: #009900;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.blau {
+  background-color: #000099;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.gelb {
+  background-color: #FFCC00;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.lila {
+  background-color: #990066;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.teal {
+  background-color: #009999;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.grey {
+  background-color: #CCCCCC;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/*EOF*/

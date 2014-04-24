@@ -1,0 +1,80 @@
+<!--
+/**
+ * MasterMind Clone written in HTML5 with JavaScript
+ * submission and PHP processing
+ *
+ * Clone of the commonly known game "Mastermind"
+ * Featuring a HTML5-Compliant userinterface built upon Bootstrap
+ * with jQuery-Based JavaScript-I/O-Processing
+ * and PHP Game-Logic.
+ * This Project was written as part of a practical exercise for the class
+ * "Web-Engeneering" in the Summer Semester 2014 at Hochschule RheinMain
+ *
+ * @author     Alexander Weleczka <mail@AWeleczka.de>
+ * @copyright  2014 Alexander Weleczka for WebEng006 SS14 HS-RM
+ * @version    1.0
+ */
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./mastermind.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="./mastermind.js"></script>
+    <title>MasterMind - WebEng006</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>MasterMind - <small>WebEng006</small></h1>
+                </div>
+            </div>
+            <div class="row">
+                <hr/>
+            </div>
+
+            <div id="thegame">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Rate meine Farbkombination</h3>
+                        <p>Du hast 12 Versuche!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <hr/>
+            </div>
+            <div id="colSel">
+                <div class="row">
+                    <div class="col-md-2 btn rot" onclick="setColor('rot')">Rot</div>
+                    <div class="col-md-2 btn gruen" onclick="setColor('gruen')">Grün</div>
+                    <div class="col-md-2 btn blau" onclick="setColor('blau')">Blau</div>
+                    <div class="col-md-2 btn gelb" onclick="setColor('gelb')">Gelb</div>
+                    <div class="col-md-2 btn lila" onclick="setColor('lila')">Lila</div>
+                    <div class="col-md-2 btn teal" onclick="setColor('teal')">Teal</div>
+                </div>
+                <div class="row">
+                    <div id="guess_1" class="col-md-3 btn grey">&nbsp;</div>
+                    <div id="guess_2" class="col-md-3 btn grey">&nbsp;</div>
+                    <div id="guess_3" class="col-md-3 btn grey">&nbsp;</div>
+                    <div id="guess_4" class="col-md-3 btn grey">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="text-align:center;">Du hast noch <strong id="remaining">12</strong> von 12 Versuchen</p>
+                        <button class="btn btn-primary btn-block" onclick="restartGame();">Neues Spiel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
